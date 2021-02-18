@@ -15,16 +15,16 @@ function Results(props) {
             </tr>
         </thead>
         <tbody>
-            {props.results.map(result => {
+            {props.results.map(result => (
                 <tr key={result.email}>
-                    <td>{result.picture.thumbnail}</td>
+                    <td><img src={result.picture.thumbnail} alt="profile-pic"/></td>
                     <td>{result.name.first}{result.name.last}</td>
                     <td>{result.phone}</td>
                     <td>{result.email}</td>
                     <td>{result.dob.date}</td>
                     <td>{result.nat}</td>
                 </tr>
-            })}
+            ))}
         </tbody>
     </Table>  
   );
