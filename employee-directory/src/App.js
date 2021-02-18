@@ -1,15 +1,13 @@
+import React from "react";
 import './App.css';
 //import './utils/API.js'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/Header/header.js"
-import Search from "./components/Search/search.js"
+import EmpDirectoryContainer from "./components/empDirectoryContainer/empDirectoryContainer.js"
+
+
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Search />
-    </div>
+    <EmpDirectoryContainer />
   )
 }
 
