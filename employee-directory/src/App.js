@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 //import './utils/API.js'
-import EmpDirectoryContainer from "./components/empDirectoryContainer/empDirectoryContainer.js"
+import EmpDirectoryContainer from "./components/EmpDirectoryContainer.js"
 
 
 
