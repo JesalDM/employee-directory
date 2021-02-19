@@ -18,7 +18,7 @@ class Search extends Component{
                             onClick={this.props.handleFormSubmit}>Search
                         </button>
                         <button 
-                            className="btn btn-outline-primary my-2 my-sm-0" 
+                            className="btn btn-outline-primary my-2 my-sm-0 mx-2" 
                             type="button"
                             onClick={this.props.handleClearResults}>Clear
                         </button>

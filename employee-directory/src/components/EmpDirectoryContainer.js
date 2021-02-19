@@ -36,17 +36,14 @@ export default class EmpDirectoryContainer extends Component{
 
   handleFormSubmit = (event) =>{
     event.preventDefault();
-    console.log("Inside handle form submit", this.state.search, this.state.results)
     const filteredResults = this.state.origResults.filter((row)=>
         row.gender === this.state.search
     )
-    console.log(filteredResults);
     this.setState({results: filteredResults});
  }
 
  
  handleClearResults = () => {
-    console.log(this.state.origResults)
     this.setState({results: this.state.origResults});
  }
 
@@ -54,8 +51,10 @@ export default class EmpDirectoryContainer extends Component{
         return(
             <div>
                 <Header />
-                <Search handleInputChange = {this.handleInputChange} handleFormSubmit={this.handleFormSubmit} handleClearResults={this.handleClearResults}/>
-                <Results results={this.state.results}/>
+                <div className="container">
+                    <Search handleInputChange = {this.handleInputChange} handleFormSubmit={this.handleFormSubmit} handleClearResults={this.handleClearResults}/>
+                    <Results results={this.state.results}/>
+                </div>
             </div>
         )
     }

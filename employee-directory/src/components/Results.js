@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table"
 
 function Results(props) {
   return (
-    <div className = "container">
+    <div className="mt-3">
         <Table striped bordered hover size="sm">
             <thead>
                 <tr>
