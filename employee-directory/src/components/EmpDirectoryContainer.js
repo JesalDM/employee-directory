@@ -3,11 +3,12 @@ import Header from "./Header.js";
 import Search from "./Search.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from "./Results";
-import axios from 'axios';
+
 
 export default class EmpDirectoryContainer extends Component{
         state={
             results:[],
+            origResults:[],
             search:""
         }
  
@@ -19,7 +20,7 @@ export default class EmpDirectoryContainer extends Component{
     data
     .then((response) => response.json())
     .then((response) => {
-        this.setState({results: response.results});
+        this.setState({results: response.results, origResults: response.results});
     });
   }
 
@@ -36,18 +37,24 @@ export default class EmpDirectoryContainer extends Component{
   handleFormSubmit = (event) =>{
     event.preventDefault();
     console.log("Inside handle form submit", this.state.search, this.state.results)
-    const filteredResults = this.state.results.filter((row)=>
+    const filteredResults = this.state.origResults.filter((row)=>
         row.gender === this.state.search
     )
     console.log(filteredResults);
     this.setState({results: filteredResults});
  }
 
+ 
+ handleClearResults = () => {
+    console.log(this.state.origResults)
+    this.setState({results: this.state.origResults});
+ }
+
     render(){       
         return(
             <div>
                 <Header />
-                <Search handleInputChange = {this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
+                <Search handleInputChange = {this.handleInputChange} handleFormSubmit={this.handleFormSubmit} handleClearResults={this.handleClearResults}/>
                 <Results results={this.state.results}/>
             </div>
         )
