@@ -6,13 +6,15 @@ import Results from "./Results";
 import axios from 'axios';
 
 export default class EmpDirectoryContainer extends Component{
-    state={
-        results:[],
-        search:""
-    }
+        state={
+            results:[],
+            search:""
+        }
+ 
 
     // When this component mounts, fetch the random user API 
   componentDidMount() {
+      console.log("mounting component");
     const data = fetch("https://randomuser.me/api/?results=100");
     data
     .then((response) => response.json())
@@ -21,11 +23,31 @@ export default class EmpDirectoryContainer extends Component{
     });
   }
 
+  
+  handleInputChange =(event)=>{
+    const name = event.target.name
+    const value = event.target.value
+    console.log(event.target.name, event.target.value)
+     this.setState({
+        [name]:value
+     })
+ }
+
+  handleFormSubmit = (event) =>{
+    event.preventDefault();
+    console.log("Inside handle form submit", this.state.search, this.state.results)
+    const filteredResults = this.state.results.filter((row)=>
+        row.gender === this.state.search
+    )
+    console.log(filteredResults);
+    this.setState({results: filteredResults});
+ }
+
     render(){       
         return(
             <div>
                 <Header />
-                <Search />
+                <Search handleInputChange = {this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
                 <Results results={this.state.results}/>
             </div>
         )

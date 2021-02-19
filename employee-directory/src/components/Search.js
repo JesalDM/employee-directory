@@ -1,27 +1,22 @@
 import React, {Component} from 'react';
 
-
 class Search extends Component{
-
-    state = {
-        search: ""
-    }
-
-    handleInputChange =(event)=>{
-       const name = event.target.name
-       const value = event.target.value
-        this.setState({
-           [name]:value
-        })
-    }
- 
     render(){
         return(
             <div>
                 <nav className="navbar navbar-light bg-light">
                     <form className="form-inline">
-                        <input className="form-control mr-sm-2" type="search" name="search" placeholder="Search here" value = {this.state.search} aria-label="Search" onChange={this.handleInputChange}/>
-                        <button className="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                        <input 
+                            className="form-control mr-sm-2" 
+                            type="search" name="search" 
+                            placeholder="Search here"  
+                            aria-label="Search" 
+                            onChange={this.props.handleInputChange}/>
+                        <button 
+                            className="btn btn-success my-2 my-sm-0" 
+                            type="submit"
+                            onClick={this.props.handleFormSubmit}>Search
+                        </button>
                     </form>
                 </nav>
             </div>
