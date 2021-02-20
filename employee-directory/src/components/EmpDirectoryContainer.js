@@ -1,15 +1,17 @@
+//import dependeciesn
 import React, {Component} from "react";
 import Header from "./Header.js";
 import Search from "./Search.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from "./Results";
 
-
+// creates class EmpDirectoryContainer that extends React.Component
 export default class EmpDirectoryContainer extends Component{
-        state={
-            results:[],
-            origResults:[],
-            search:""
+       // initializing states
+        state = {
+            results: [],
+            origResults: [],
+            search: ""
         }
  
 
@@ -19,12 +21,13 @@ export default class EmpDirectoryContainer extends Component{
     data
     .then((response) => response.json())
     .then((response) => {
+        // sets states
         this.setState({results: response.results, origResults: [...response.results]});
     });
   }
 
-  
-  handleInputChange =(event)=>{
+   // function that handles input change event 
+   handleInputChange =(event)=>{
     const name = event.target.name
     const value = event.target.value
     console.log(event.target.name, event.target.value)
@@ -33,7 +36,8 @@ export default class EmpDirectoryContainer extends Component{
      })
  }
 
-  handleFormSubmit = (event) =>{
+   // function that handles form/input submit event on search button click
+   handleFormSubmit = (event) =>{
     event.preventDefault();
     const filteredResults = this.state.origResults.filter((row)=>
         row.email.includes(this.state.search)
@@ -41,13 +45,15 @@ export default class EmpDirectoryContainer extends Component{
     this.setState({results: filteredResults});
  }
 
- 
-    handleClearResults = () => {
+   // function that claers the results to bring back the original results array
+   handleClearResults = () => {
         this.setState({results: this.state.origResults});
-    }
+   }
 
+
+    // function that sorts the results in the table by Name in ascending order
     sortTable = (event) => {
-        console.log(event.target.id);
+        //console.log(event.target.id);
         const sortedResults = this.state.results.sort((a, b) => {
             let comparison = 0;
             const aName = (a.name.first + " " + a.name.last).toUpperCase();
@@ -61,9 +67,11 @@ export default class EmpDirectoryContainer extends Component{
             return comparison;
         });
         this.setState({ results: sortedResults });
-        return false;
+        //return false;
     };
 
+
+    // renders on UI
     render(){       
         return(
             <div>

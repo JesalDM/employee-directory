@@ -1,6 +1,9 @@
+// importing dependencies
 import React, {Component} from 'react';
 
+// creates class Search as a component that extends the React.Component
 class Search extends Component{
+    // renders the Search bar with the Search input textbox and the buttons
     render(){
         return(
             <div>

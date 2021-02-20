@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table"
 
+// function that creates a Bootstrap table and renders the results from the API response in the table 
 function Results(props) {
   return (
     <div className="mt-3">
@@ -8,7 +9,8 @@ function Results(props) {
             <thead>
                 <tr>
                     <th>Image</th>
-                    <th><a href="#" onClick={props.sortResults}>Name</a></th>
+                    {/*makes the Name column Header clickable and sorts the results by Name ascending on click*/}
+                    <th><span onClick={props.sortResults} style={{cursor:"pointer"}}>Name</span></th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Gender</th>
@@ -17,6 +19,7 @@ function Results(props) {
                 </tr>
             </thead>
             <tbody>
+                {/*maps every object in the array response as a row in the table*/}
                 {props.results.map(result => (
                     <tr key={result.email}>
                         <td><img src={result.picture.thumbnail} alt="profile-pic"/></td>
