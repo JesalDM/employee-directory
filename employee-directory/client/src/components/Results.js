@@ -31,7 +31,7 @@ function Results(props) {
                         <td>{result.nat}</td>
                     </tr>
                 ))}
-            </tbody>
+            </tbody>          
         </Table> 
     </div> 
   );

@@ -52,9 +52,9 @@ export default class EmpDirectoryContainer extends Component{
 
 
     // function that sorts the results in the table by Name in ascending order
-    sortTable = (event) => {
+    sortByName = (event) => {
         //console.log(event.target.id);
-        const sortedResults = this.state.results.sort((a, b) => {
+        const sortedResults = [...this.state.results].sort((a, b) => {
             let comparison = 0;
             const aName = (a.name.first + " " + a.name.last).toUpperCase();
             const bName = (b.name.first + " " + b.name.last).toUpperCase();
@@ -78,9 +78,9 @@ export default class EmpDirectoryContainer extends Component{
                 <Header />
                 <div className="container">
                     <Search handleInputChange = {this.handleInputChange} handleFormSubmit={this.handleFormSubmit} handleClearResults={this.handleClearResults}/>
-                    <Results results={this.state.results} sortResults={this.sortTable}/>
+                    <Results results={this.state.results} sortResults={this.sortByName}/>
                 </div>
             </div>
         )
     }
-}
+}  
