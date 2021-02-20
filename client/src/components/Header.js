@@ -1,6 +1,8 @@
+// imports dependencies
 import React, {Component} from 'react';
 import "../styles/Header.css"
 
+// creates class Header as a component that extends the React.Component
 class Header extends Component{
     render(){
         return(
