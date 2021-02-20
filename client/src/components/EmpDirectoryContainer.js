@@ -47,13 +47,13 @@ export default class EmpDirectoryContainer extends Component{
 
    // function that claers the results to bring back the original results array
    handleClearResults = () => {
-        this.setState({results: this.state.origResults});
+        document.getElementById('searchBox').value="";
+        this.setState({results: this.state.origResults, search: ""});
    }
 
 
     // function that sorts the results in the table by Name in ascending order
     sortByName = (event) => {
-        //console.log(event.target.id);
         const sortedResults = [...this.state.results].sort((a, b) => {
             let comparison = 0;
             const aName = (a.name.first + " " + a.name.last).toUpperCase();
@@ -67,7 +67,6 @@ export default class EmpDirectoryContainer extends Component{
             return comparison;
         });
         this.setState({ results: sortedResults });
-        //return false;
     };
 
 
