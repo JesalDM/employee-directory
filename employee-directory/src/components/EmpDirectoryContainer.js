@@ -15,12 +15,11 @@ export default class EmpDirectoryContainer extends Component{
 
     // When this component mounts, fetch the random user API 
   componentDidMount() {
-      console.log("mounting component");
     const data = fetch("https://randomuser.me/api/?results=100");
     data
     .then((response) => response.json())
     .then((response) => {
-        this.setState({results: response.results, origResults: response.results});
+        this.setState({results: response.results, origResults: [...response.results]});
     });
   }
 
@@ -37,15 +36,33 @@ export default class EmpDirectoryContainer extends Component{
   handleFormSubmit = (event) =>{
     event.preventDefault();
     const filteredResults = this.state.origResults.filter((row)=>
-        row.gender === this.state.search
+        row.email.includes(this.state.search)
     )
     this.setState({results: filteredResults});
  }
 
  
- handleClearResults = () => {
-    this.setState({results: this.state.origResults});
- }
+    handleClearResults = () => {
+        this.setState({results: this.state.origResults});
+    }
+
+    sortTable = (event) => {
+        console.log(event.target.id);
+        const sortedResults = this.state.results.sort((a, b) => {
+            let comparison = 0;
+            const aName = (a.name.first + " " + a.name.last).toUpperCase();
+            const bName = (b.name.first + " " + b.name.last).toUpperCase();
+            if (aName > bName) {
+                comparison = 1;
+            }
+            if (aName < bName) {
+                comparison = -1;
+            }
+            return comparison;
+        });
+        this.setState({ results: sortedResults });
+        return false;
+    };
 
     render(){       
         return(
@@ -53,7 +70,7 @@ export default class EmpDirectoryContainer extends Component{
                 <Header />
                 <div className="container">
                     <Search handleInputChange = {this.handleInputChange} handleFormSubmit={this.handleFormSubmit} handleClearResults={this.handleClearResults}/>
-                    <Results results={this.state.results}/>
+                    <Results results={this.state.results} sortResults={this.sortTable}/>
                 </div>
             </div>
         )

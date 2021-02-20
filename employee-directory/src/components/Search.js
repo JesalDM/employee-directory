@@ -9,7 +9,7 @@ class Search extends Component{
                         <input 
                             className="form-control mr-sm-2" 
                             type="search" name="search" 
-                            placeholder="Search here"  
+                            placeholder="Email contains"  
                             aria-label="Search" 
                             onChange={this.props.handleInputChange}/>
                         <button 

@@ -8,7 +8,7 @@ function Results(props) {
             <thead>
                 <tr>
                     <th>Image</th>
-                    <th>Name</th>
+                    <th><a href="#" onClick={props.sortResults}>Name</a></th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Gender</th>
