@@ -8,11 +8,11 @@ Employee Directory created using React
 ## Description
 This application is useful to an employee or manager who would benefit greatly from being able to view non-sensitive data about other employees. When the user loads the page, a table of employees will render generated using the [Random User API](https://randomuser.me/), that will display personal information of the employees like Image, Name, phone, email, date-of-birth(YYYY-MM-DD format), gender and Nationality
 
-The user also has the ability able to:
+The user also has the ability to:
 
   * Sort the table by the Name column in ascending order. This can be done by clicking on the Name Header itself.
 
-  * Filter/search for the table results by email. The user can search by entering some letters that are contained within the email and click on Search to bring only those results that match the letters.
+  * Filter/search the table results by email. The user can search by entering some letters that are contained within the email and click on Search to bring only those results that match the letters.
 
   * The Clear button can be used to return the original results back unfiltered or unsorted.
 
@@ -30,7 +30,7 @@ The user also has the ability able to:
 
 ## Usage
 1. In the command line/terminal within the directory that the project is downloaded, invoke the application using the command 'npm start' 
-2. The application can be accessed using this URL in the browser (https://my-budget-tracking-app.herokuapp.com/). The Employee Directory application will be rendered, with the Header, Search bar(with Search and Clear buttons) and the employee table that lists all the employees/users.
+2. The application can be accessed using this URL in the browser (https://my-employee-directory-app.herokuapp.com/)The Employee Directory application will be rendered, with the Header, Search bar(with Search and Clear buttons) and the employee table that lists all the employees/users.
 3. The input textbox can be used to filter the employee list by email (search by 'email contains')
 4. The employee list can be sorted by Employee Name by clicking on the "Name" header.
 
@@ -48,4 +48,6 @@ This project is licensed under the terms of the MIT license.
 
 ## For Review
 * Github Repository URL: https://github.com/JesalDM/employee-directory
-
+* Deployed application Heroku URL: https://my-employee-directory-app.herokuapp.com/
+* Application demo: ![Application-Demo](./client/assets/employee_directory_app_demo.gif)
+* Screenshot :![Application Screenshot](./client/assets/employee_directory_screenshot.png)
